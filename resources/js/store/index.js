@@ -28,11 +28,11 @@ const store = createStore({
     },
     actions: {
         loadStoredUser(context) {
-            context.commit('setLoggedIn', isLoggedIn);
+            context.commit('setLoggedIn', isLoggedIn());
         },
 
         async loadUser({ commit, dispatch }) {
-            if (isLoggedIn) {
+            if (isLoggedIn()) {
                 try {
                     const user = (await axios.get('/user')).data;
                     commit('setUser', user);

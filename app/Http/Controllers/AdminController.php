@@ -70,7 +70,7 @@ class AdminController extends Controller
     public function updateCategory(Request $request, $id)
     {
         $validateData = $request->validate([
-            'name' => 'required|unique:categories'
+            'name' => 'required'
         ]);
 
         $cat = CategoryFacade::update($request->all(), $id);
